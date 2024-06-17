@@ -9,7 +9,7 @@
     width: 400px;
     height: 300px;
     box-shadow: 0 0 5px #999;
-    background-color: #fff;
+    background-color: #5a6268;
     border-radius: 10px;
     position: fixed;
     left: 50%;
@@ -32,6 +32,7 @@
     .popupHeader i {
         font-size: 22px;
         cursor: pointer;
+        color: #fff;
     }
 
     .rowContainer {
@@ -50,8 +51,11 @@
         }
 
         p {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 600;
+            color: #fff;
+            align-self: flex-start;
+            margin-left: 20px;
         }
     }
 }
@@ -144,83 +148,114 @@
         flex-direction: column;
         align-items: center;
 
-        .charactersContainer {
+        .filterContainer {
             width: 100%;
+            height: 10vh;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: space-evenly;
             align-items: center;
 
-            .characterItem {
-                width: 300px;
-                height: 300px;
-                box-shadow: 0 5px 10px #777;
+            .filter {
+                padding: 10px 20px;
                 border-radius: 10px;
-                margin: 20px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 10px;
-                text-align: center;
-                justify-content: space-between;
-                background-color: #fff;
+                background-color: #5a6268;
+                border: none;
+                cursor: pointer;
+                color: rgb(189, 255, 160);
+                font-size: 20px;
+                text-shadow: rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px;
+            }
 
-                h3 {
-                    align-items: center;
-                    width: 100%;
-                    color: rgb(189, 255, 160);
-                    text-shadow: rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px;
-                }
-
-                img {
-                    width: 150px;
-                    border-radius: 50%;
-                    margin-bottom: 20px;
-                    box-shadow: 0 2px 10px #777;
-                }
-
-                button {
-                    padding: 5px 15px;
-                    border: none;
-                    background-color: #27bf27;
-                    border-radius: 5px;
-                    color: #fff;
-                    cursor: pointer;
-                    font-weight: 700;
-                    box-shadow: 0 2px 5px #777;
-                }
+            #reset {
+                padding: 10px 20px;
+                font-size: 20px;
+                background-color: #5a6268;
+                border-radius: 10px;
+                color: rgb(189, 255, 160);
+                border: none;
+                font-size: 20px;
+                text-shadow: rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px;
+                cursor: pointer;
             }
         }
+    }
 
-        .controlContainer {
-            width: 100%;
+    .charactersContainer {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+
+        .characterItem {
+            width: 300px;
+            height: 300px;
+            box-shadow: 0 5px 10px #777;
+            border-radius: 10px;
+            margin: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-        }
-
-        .controlContainer button {
-            padding: 7px 15px;
-            margin: 10px;
-            border: none;
-            background-color: #27bf27;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .controlContainer input {
-            width: 40px;
-            height: 32px;
-            margin: 10px;
-            border: none;
-            background-color: #27bf27;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 20px 10px;
             text-align: center;
-            outline: none;
-            font-weight: 600;
+            justify-content: space-between;
+            background-color: #5a6268;
+
+            h3 {
+                align-items: center;
+                width: 100%;
+                color: rgb(189, 255, 160);
+                text-shadow: rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px;
+            }
+
+            img {
+                width: 150px;
+                border-radius: 50%;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 10px #777;
+            }
+
+            button {
+                padding: 5px 15px;
+                border: none;
+                background-color: #27bf27;
+                border-radius: 5px;
+                color: #fff;
+                cursor: pointer;
+                font-weight: 700;
+                box-shadow: 0 2px 5px #777;
+            }
         }
+    }
+
+    .controlContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .controlContainer button {
+        padding: 7px 15px;
+        margin: 10px;
+        border: none;
+        background-color: #27bf27;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .controlContainer input {
+        width: 40px;
+        height: 32px;
+        margin: 10px;
+        border: none;
+        background-color: #27bf27;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        outline: none;
+        font-weight: 600;
     }
 }
