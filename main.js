@@ -99,45 +99,45 @@ $(`#logo`).click(() => {
     $(`.homePage`).css(`display`, `flex`);
 });
 
-let pageOpen = 1;
-let numberPage;
+let charactersPageOpen = 1;
+let numberCharactersPage;
 function getCharacters(page = 1) {
     axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`)
-    .then(res => {
-        $('.charactersContainer').empty();
-        for (let el of res.data.results) {
-            if ((!$('#species').val() || el.species === $('#species').val()) &&
-                (!$('#status').val() || el.status === $('#status').val()) &&
-                (!$('#gender').val() || el.gender === $('#gender').val())) {
-                $('.charactersContainer').append(`
+        .then(res => {
+            $('.charactersContainer').empty();
+            for (let el of res.data.results) {
+                if ((!$('#species').val() || el.species === $('#species').val()) &&
+                    (!$('#status').val() || el.status === $('#status').val()) &&
+                    (!$('#gender').val() || el.gender === $('#gender').val())) {
+                    $('.charactersContainer').append(`
                     <div class="characterItem">
                         <img src="${el.image}" alt="">
                         <h3>${el.name}</h3>
                         <button id="code${el.id}" class="viewInfoBtn">View</button>
                     </div>
                 `);
+                }
             }
-        }
 
-        numberPage = res.data.info.pages;
-    })
+            numberCharactersPage = res.data.info.pages;
+        })
 }
 
-getCharacters(pageOpen)
+getCharacters(charactersPageOpen)
 
 $('#species, #status, #gender').change(() => {
-    pageOpen = 1
-    getCharacters(pageOpen)
-    $(`#numberPage`).val(pageOpen);
+    charactersPageOpen = 1
+    getCharacters(charactersPageOpen)
+    $(`#numberCharactersPage`).val(charactersPageOpen);
 });
 
-$(`#reset`).click(()=>{
+$(`#reset`).click(() => {
     $('#species').val(``);
     $('#status').val(``);
     $('#gender').val(``);
-    pageOpen = 1
-    getCharacters(pageOpen)
-    $(`#numberPage`).val(pageOpen);
+    charactersPageOpen = 1
+    getCharacters(charactersPageOpen)
+    $(`#numberCharactersPage`).val(charactersPageOpen);
 });
 
 function getCharacterInfo(id) {
@@ -156,7 +156,7 @@ function getCharacterInfo(id) {
 
 
 
-$(`#numberPage`).val(pageOpen);
+$(`#numberCharactersPage`).val(charactersPageOpen);
 
 
 $(`.wrap`).click((e) => {
@@ -171,26 +171,26 @@ $(`#close`).click(() => {
     $(`.popup`).css(`display`, `none`);
 });
 
-$(`#nextPage`).click(() => {
-    if (pageOpen <= numberPage - 1) {
-        pageOpen++
-        getCharacters(pageOpen);
-        $(`#numberPage`).val(pageOpen);
+$(`#nextCharactersPage`).click(() => {
+    if (charactersPageOpen <= numberPage - 1) {
+        charactersPageOpen++
+        getCharacters(charactersPageOpen);
+        $(`#numberCharactersPage`).val(charactersPageOpen);
     }
 });
 
-$(`#prewPage`).click(() => {
-    if (pageOpen > 1) {
-        pageOpen--
-        getCharacters(pageOpen);
-        $(`#numberPage`).val(pageOpen);
+$(`#prewCharactersPage`).click(() => {
+    if (charactersPageOpen > 1) {
+        charactersPageOpen--
+        getCharacters(charactersPageOpen);
+        $(`#numberCharactersPage`).val(charactersPageOpen);
     }
 });
 
-$(`#numberPage`).keydown((e) => {
+$(`#numberCharactersPage`).keydown((e) => {
     if (e.keyCode == 13) {
-        pageOpen = $(`#numberPage`).val();
-        getCharacters(pageOpen);
-        $(`#numberPage`).val(pageOpen);
+        charactersPageOpen = $(`#numberCharactersPage`).val();
+        getCharacters(charactersPageOpen);
+        $(`#numberCharactersPage`).val(charactersPageOpen);
     }
 });

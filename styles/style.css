@@ -5,6 +5,23 @@
   font-family: Montserrat;
 }
 
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: #5a6268;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bdffa0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bdffa0;
+}
+
 .popup {
   width: 400px;
   height: 300px;
@@ -91,7 +108,7 @@
 .wrap .homePage {
   width: 100%;
   min-height: 80vh;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -127,7 +144,7 @@
 .wrap .charactersPage {
   width: 100%;
   min-height: 90vh;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
 }
@@ -159,14 +176,14 @@
   text-shadow: rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px;
   cursor: pointer;
 }
-.wrap .charactersContainer {
+.wrap .charactersPage .charactersContainer {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
-.wrap .charactersContainer .characterItem {
+.wrap .charactersPage .charactersContainer .characterItem {
   width: 300px;
   height: 300px;
   box-shadow: 0 5px 10px #777;
@@ -180,19 +197,19 @@
   justify-content: space-between;
   background-color: #5a6268;
 }
-.wrap .charactersContainer .characterItem h3 {
+.wrap .charactersPage .charactersContainer .characterItem h3 {
   align-items: center;
   width: 100%;
   color: rgb(189, 255, 160);
   text-shadow: rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px;
 }
-.wrap .charactersContainer .characterItem img {
+.wrap .charactersPage .charactersContainer .characterItem img {
   width: 150px;
   border-radius: 50%;
   margin-bottom: 20px;
   box-shadow: 0 2px 10px #777;
 }
-.wrap .charactersContainer .characterItem button {
+.wrap .charactersPage .charactersContainer .characterItem button {
   padding: 5px 15px;
   border: none;
   background-color: #27bf27;
@@ -202,13 +219,13 @@
   font-weight: 700;
   box-shadow: 0 2px 5px #777;
 }
-.wrap .controlContainer {
+.wrap .charactersPage .controlContainer {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.wrap .controlContainer button {
+.wrap .charactersPage .controlContainer button {
   padding: 7px 15px;
   margin: 10px;
   border: none;
@@ -217,7 +234,84 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.wrap .controlContainer input {
+.wrap .charactersPage .controlContainer input {
+  width: 40px;
+  height: 32px;
+  margin: 10px;
+  border: none;
+  background-color: #27bf27;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  font-weight: 600;
+}
+.wrap .episodePage {
+  width: 100%;
+  min-height: 80vh;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrap .episodePage .searchConatiner {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap .episodePage .searchConatiner #searchEpisode {
+  width: 350px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #5a6268;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  color: rgb(189, 255, 160);
+  text-shadow: rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px;
+  font-size: 20px;
+  position: relative;
+  left: 10px;
+}
+.wrap .episodePage .searchConatiner #searchEpisode::-moz-placeholder {
+  color: rgb(189, 255, 160);
+}
+.wrap .episodePage .searchConatiner #searchEpisode::placeholder {
+  color: rgb(189, 255, 160);
+}
+.wrap .episodePage .searchConatiner i {
+  position: relative;
+  right: 30px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+}
+.wrap .episodePage .episodeContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.wrap .episodePage .controlContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap .episodePage .controlContainer button {
+  padding: 7px 15px;
+  margin: 10px;
+  border: none;
+  background-color: #27bf27;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.wrap .episodePage .controlContainer input {
   width: 40px;
   height: 32px;
   margin: 10px;
