@@ -18,6 +18,7 @@ $(`#characters`).click(() => {
 
     $(`.charactersPage`).css(`display`, `flex`);
     $(`.homePage`).css(`display`, `none`);
+    $(`.episodePage`).css(`display`, `none`);
 });
 
 $(`#episode`).click(() => {
@@ -37,6 +38,10 @@ $(`#episode`).click(() => {
         'color': `#fff`,
         'text-shadow': `none`
     })
+
+    $(`.charactersPage`).css(`display`, `none`);
+    $(`.homePage`).css(`display`, `none`);
+    $(`.episodePage`).css(`display`, `flex`);
 });
 
 $(`#locations`).click(() => {
@@ -96,7 +101,8 @@ $(`#logo`).click(() => {
     })
 
     $(`.charactersPage`).css(`display`, `none`);
-    $(`.homePage`).css(`display`, `flex`);
+    $(`.homePage`).css(`display`, `flex`); 
+    $(`.episodePage`).css(`display`, `none`);
 });
 
 let charactersPageOpen = 1;
@@ -154,8 +160,6 @@ function getCharacterInfo(id) {
         });
 }
 
-
-
 $(`#numberCharactersPage`).val(charactersPageOpen);
 
 
@@ -172,7 +176,7 @@ $(`#close`).click(() => {
 });
 
 $(`#nextCharactersPage`).click(() => {
-    if (charactersPageOpen <= numberPage - 1) {
+    if (charactersPageOpen <= numberCharactersPage - 1) {
         charactersPageOpen++
         getCharacters(charactersPageOpen);
         $(`#numberCharactersPage`).val(charactersPageOpen);
@@ -192,5 +196,64 @@ $(`#numberCharactersPage`).keydown((e) => {
         charactersPageOpen = $(`#numberCharactersPage`).val();
         getCharacters(charactersPageOpen);
         $(`#numberCharactersPage`).val(charactersPageOpen);
+    }
+});
+
+
+let episodePageOpen = 1;
+let numberEpisodePage;
+
+function getEpisode(page = 1) {
+    axios.get(`https://rickandmortyapi.com/api/episode?page=${page}`)
+        .then(res => {
+            console.log(res.data.results)
+            $(`.episodeContainer`).empty();
+
+            let filterEpisodeName = res.data.results.filter(el => el.name.toLowerCase().includes(`${$(`#searchEpisode`).val().toLowerCase()}`))
+
+            for (let el of filterEpisodeName) {
+                $(`.episodeContainer`).append(`
+                    <div class="episodeItem">
+                        <h3>${el.episode}</h3>
+                        <p><span>Name:</span> ${el.name}</p>
+                        <p><span>Data:</span> ${el.air_date}</p>
+                        <button class="addWatchList">Add to watch list</button>
+                    </div>
+                `)
+            }
+
+            numberEpisodePage = res.data.info.pages;
+        });
+}
+
+getEpisode(episodePageOpen);
+
+$(`#searchEpisode`).on(`input`,()=>{
+    getEpisode(episodePageOpen);
+});
+
+$(`#numberEpisodePagePage`).val(episodePageOpen);
+
+$(`#nextPEpisodePageage`).click(() => {
+    if (episodePageOpen <= numberEpisodePage - 1) {
+        episodePageOpen++
+        getEpisode(episodePageOpen);
+        $(`#numberEpisodePagePage`).val(episodePageOpen);
+    }
+});
+
+$(`#prewEpisodePagePage`).click(() => {
+    if (episodePageOpen > 1) {
+        episodePageOpen--
+        getEpisode(episodePageOpen);
+        $(`#numberEpisodePagePage`).val(episodePageOpen);
+    }
+});
+
+$(`#numberEpisodePagePage`).keydown((e) => {
+    if (e.keyCode == 13) {
+        episodePageOpen = $(`#numberEpisodePagePage`).val();
+        getEpisode(episodePageOpen);
+        $(`#numberEpisodePagePage`).val(episodePageOpen);
     }
 });
