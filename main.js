@@ -19,6 +19,7 @@ $(`#characters`).click(() => {
     $(`.charactersPage`).css(`display`, `flex`);
     $(`.homePage`).css(`display`, `none`);
     $(`.episodePage`).css(`display`, `none`);
+    $(`.locationsPage`).css(`display`, `none`);
 });
 
 $(`#episode`).click(() => {
@@ -42,6 +43,7 @@ $(`#episode`).click(() => {
     $(`.charactersPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `none`);
     $(`.episodePage`).css(`display`, `flex`);
+    $(`.locationsPage`).css(`display`, `none`);
 });
 
 $(`#locations`).click(() => {
@@ -61,6 +63,11 @@ $(`#locations`).click(() => {
         'color': `#fff`,
         'text-shadow': `none`
     })
+
+    $(`.charactersPage`).css(`display`, `none`);
+    $(`.homePage`).css(`display`, `none`);
+    $(`.episodePage`).css(`display`, `none`);
+    $(`.locationsPage`).css(`display`, `flex`);
 });
 
 $(`#watchList`).click(() => {
@@ -103,6 +110,7 @@ $(`#logo`).click(() => {
     $(`.charactersPage`).css(`display`, `none`);
     $(`.homePage`).css(`display`, `flex`); 
     $(`.episodePage`).css(`display`, `none`);
+    $(`.locationsPage`).css(`display`, `none`);
 });
 
 let charactersPageOpen = 1;
@@ -137,7 +145,7 @@ $('#species, #status, #gender').change(() => {
     $(`#numberCharactersPage`).val(charactersPageOpen);
 });
 
-$(`#reset`).click(() => {
+$(`#resetCharacters`).click(() => {
     $('#species').val(``);
     $('#status').val(``);
     $('#gender').val(``);
@@ -232,28 +240,28 @@ $(`#searchEpisode`).on(`input`,()=>{
     getEpisode(episodePageOpen);
 });
 
-$(`#numberEpisodePagePage`).val(episodePageOpen);
+$(`#numberEpisodePage`).val(episodePageOpen);
 
-$(`#nextPEpisodePageage`).click(() => {
+$(`#nextEpisodePage`).click(() => {
     if (episodePageOpen <= numberEpisodePage - 1) {
         episodePageOpen++
         getEpisode(episodePageOpen);
-        $(`#numberEpisodePagePage`).val(episodePageOpen);
+        $(`#numberEpisodePage`).val(episodePageOpen);
     }
 });
 
-$(`#prewEpisodePagePage`).click(() => {
+$(`#prewEpisodePage`).click(() => {
     if (episodePageOpen > 1) {
         episodePageOpen--
         getEpisode(episodePageOpen);
-        $(`#numberEpisodePagePage`).val(episodePageOpen);
+        $(`#numberEpisodePage`).val(episodePageOpen);
     }
 });
 
-$(`#numberEpisodePagePage`).keydown((e) => {
+$(`#numberEpisodePage`).keydown((e) => {
     if (e.keyCode == 13) {
-        episodePageOpen = $(`#numberEpisodePagePage`).val();
+        episodePageOpen = $(`#numberEpisodePage`).val();
         getEpisode(episodePageOpen);
-        $(`#numberEpisodePagePage`).val(episodePageOpen);
+        $(`#numberEpisodePage`).val(episodePageOpen);
     }
 });

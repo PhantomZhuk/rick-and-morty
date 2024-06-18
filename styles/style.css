@@ -165,7 +165,7 @@
   font-size: 20px;
   text-shadow: rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px;
 }
-.wrap .charactersPage .filterContainer #reset {
+.wrap .charactersPage .filterContainer #resetCharacters {
   padding: 10px 20px;
   font-size: 20px;
   background-color: #5a6268;
@@ -255,14 +255,14 @@
   justify-content: space-between;
   align-items: center;
 }
-.wrap .episodePage .searchConatiner {
+.wrap .episodePage .searchContainer {
   width: 100%;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.wrap .episodePage .searchConatiner #searchEpisode {
+.wrap .episodePage .searchContainer #searchEpisode {
   width: 350px;
   height: 60px;
   border-radius: 10px;
@@ -276,13 +276,13 @@
   position: relative;
   left: 10px;
 }
-.wrap .episodePage .searchConatiner #searchEpisode::-moz-placeholder {
+.wrap .episodePage .searchContainer #searchEpisode::-moz-placeholder {
   color: rgb(189, 255, 160);
 }
-.wrap .episodePage .searchConatiner #searchEpisode::placeholder {
+.wrap .episodePage .searchContainer #searchEpisode::placeholder {
   color: rgb(189, 255, 160);
 }
-.wrap .episodePage .searchConatiner i {
+.wrap .episodePage .searchContainer i {
   position: relative;
   right: 30px;
   cursor: pointer;
@@ -342,6 +342,111 @@
   cursor: pointer;
 }
 .wrap .episodePage .controlContainer input {
+  width: 40px;
+  height: 32px;
+  margin: 10px;
+  border: none;
+  background-color: #27bf27;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  font-weight: 600;
+}
+.wrap .locationsPage {
+  width: 100%;
+  min-height: 80vh;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrap .locationsPage .searchContainer {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap .locationsPage .searchContainer #searchLocations {
+  width: 350px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #5a6268;
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  color: rgb(189, 255, 160);
+  text-shadow: rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px;
+  font-size: 20px;
+  position: relative;
+  left: 10px;
+}
+.wrap .locationsPage .searchContainer #searchLocations::-moz-placeholder {
+  color: rgb(189, 255, 160);
+}
+.wrap .locationsPage .searchContainer #searchLocations::placeholder {
+  color: rgb(189, 255, 160);
+}
+.wrap .locationsPage .searchContainer i {
+  position: relative;
+  right: 30px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+}
+.wrap .locationsPage .filterContainer {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.wrap .locationsPage .filterContainer .filter {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #5a6268;
+  border: none;
+  cursor: pointer;
+  color: rgb(189, 255, 160);
+  font-size: 20px;
+  text-shadow: rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px;
+}
+.wrap .locationsPage .filterContainer #resetLocations {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #5a6268;
+  border-radius: 10px;
+  color: rgb(189, 255, 160);
+  border: none;
+  font-size: 20px;
+  text-shadow: rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px -1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) 0px 1px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px 0px 4px, rgb(9, 178, 14) 1px 0px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px, rgb(9, 178, 14) -1px -1px 4px, rgb(9, 178, 14) 1px -1px 4px, rgb(9, 178, 14) -1px 1px 4px, rgb(9, 178, 14) 1px 1px 4px;
+  cursor: pointer;
+}
+.wrap .locationsPage .locationsContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.wrap .locationsPage .controlContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap .locationsPage .controlContainer button {
+  padding: 7px 15px;
+  margin: 10px;
+  border: none;
+  background-color: #27bf27;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.wrap .locationsPage .controlContainer input {
   width: 40px;
   height: 32px;
   margin: 10px;
