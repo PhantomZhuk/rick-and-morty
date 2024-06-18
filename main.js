@@ -108,7 +108,7 @@ $(`#logo`).click(() => {
     })
 
     $(`.charactersPage`).css(`display`, `none`);
-    $(`.homePage`).css(`display`, `flex`); 
+    $(`.homePage`).css(`display`, `flex`);
     $(`.episodePage`).css(`display`, `none`);
     $(`.locationsPage`).css(`display`, `none`);
 });
@@ -214,7 +214,7 @@ let numberEpisodePage;
 function getEpisode(page = 1) {
     axios.get(`https://rickandmortyapi.com/api/episode?page=${page}`)
         .then(res => {
-            console.log(res.data.results)
+            // console.log(res.data.results)
             $(`.episodeContainer`).empty();
 
             let filterEpisodeName = res.data.results.filter(el => el.name.toLowerCase().includes(`${$(`#searchEpisode`).val().toLowerCase()}`))
@@ -236,7 +236,7 @@ function getEpisode(page = 1) {
 
 getEpisode(episodePageOpen);
 
-$(`#searchEpisode`).on(`input`,()=>{
+$(`#searchEpisode`).on(`input`, () => {
     getEpisode(episodePageOpen);
 });
 
@@ -263,5 +263,80 @@ $(`#numberEpisodePage`).keydown((e) => {
         episodePageOpen = $(`#numberEpisodePage`).val();
         getEpisode(episodePageOpen);
         $(`#numberEpisodePage`).val(episodePageOpen);
+    }
+});
+
+let locationsPageOpen = 1;
+let numberLocationsPage;
+
+function getLocations(page = 1) {
+    axios.get(`https://rickandmortyapi.com/api/location?page=${page}`)
+        .then(res => {
+            // console.log(res.data.results);
+            $(`.locationsContainer`).empty();
+
+            let filterLocationsName = res.data.results.filter(el => el.name.toLowerCase().includes(`${$(`#searchLocations`).val().toLowerCase()}`))
+
+            for (let el of filterLocationsName) {
+                if ((!$('#type').val() || el.type === $('#type').val()) &&
+                    (!$('#dimension').val() || el.dimension === $('#dimension').val())) {
+                    $(`.locationsContainer`).append(`
+                        <div class="locationsItem">
+                            <h3>${el.name}</h3>
+                            <p><span>Name:</span> ${el.type}</p>
+                            <p><span>Data:</span> ${el.dimension}</p>
+                        </div>
+                    `)
+                }
+            }
+
+            numberLocationsPage = res.data.info.pages;
+        });
+}
+
+getLocations(locationsPageOpen);
+
+$('#type, #dimension').change(() => {
+    locationsPageOpen = 1
+    getLocations(locationsPageOpen)
+    $(`#numberLocationsPage`).val(locationsPageOpen);
+});
+
+$(`#resetLocations`).click(()=>{
+    $('#type').val(``);
+    $('#dimension').val(``);
+    $(`#searchLocations`).val(``)
+    locationsPageOpen = 1
+    getLocations(locationsPageOpen)
+    $(`#numberLocationsPage`).val(locationsPageOpen);
+});
+
+$(`#searchLocations`).on(`input`, () => {
+    getLocations(locationsPageOpen);
+});
+
+$(`#numberLocationsPage`).val(locationsPageOpen);
+
+$(`#nextLocationsPage`).click(() => {
+    if (locationsPageOpen <= numberLocationsPage - 1) {
+        locationsPageOpen++
+        getLocations(locationsPageOpen);
+        $(`#numberLocationsPage`).val(locationsPageOpen);
+    }
+});
+
+$(`#prewLocationsPage`).click(() => {
+    if (locationsPageOpen > 1) {
+        locationsPageOpen--
+        getLocations(locationsPageOpen);
+        $(`#numberLocationsPage`).val(locationsPageOpen);
+    }
+});
+
+$(`#numberLocationsPage`).keydown((e) => {
+    if (e.keyCode == 13) {
+        locationsPageOpen = $(`#numberLocationsPage`).val();
+        getLocations(locationsPageOpen);
+        $(`#numberLocationsPage`).val(locationsPageOpen);
     }
 });

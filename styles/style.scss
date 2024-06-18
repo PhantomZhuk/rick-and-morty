@@ -215,7 +215,7 @@
                 padding: 20px 10px;
                 text-align: center;
                 justify-content: space-between;
-                background-color: #5a6268;
+                background-color: #fff;
 
                 h3 {
                     align-items: center;
@@ -474,6 +474,32 @@
             flex-wrap: wrap;
             justify-content: space-around;
             align-items: center;
+
+            .locationsItem {
+                width: 300px;
+                height: 200px;
+                background-color: #fff;
+                margin: 10px;
+                border-radius: 10px;
+                padding: 20px 20px 10px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+
+                h3 {
+                    color: rgb(189, 255, 160);
+                    text-shadow: rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px;
+                    font-size: 22px;
+                }
+
+                p {
+                    font-size: 18px;
+
+                    span {
+                        color: #23c934;
+                    }
+                }
+            }
         }
 
         .controlContainer {

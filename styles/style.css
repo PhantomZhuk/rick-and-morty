@@ -195,7 +195,7 @@
   padding: 20px 10px;
   text-align: center;
   justify-content: space-between;
-  background-color: #5a6268;
+  background-color: #fff;
 }
 .wrap .charactersPage .charactersContainer .characterItem h3 {
   align-items: center;
@@ -430,6 +430,28 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+}
+.wrap .locationsPage .locationsContainer .locationsItem {
+  width: 300px;
+  height: 200px;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 20px 20px 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.wrap .locationsPage .locationsContainer .locationsItem h3 {
+  color: rgb(189, 255, 160);
+  text-shadow: rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px;
+  font-size: 22px;
+}
+.wrap .locationsPage .locationsContainer .locationsItem p {
+  font-size: 18px;
+}
+.wrap .locationsPage .locationsContainer .locationsItem p span {
+  color: #23c934;
 }
 .wrap .locationsPage .controlContainer {
   width: 100%;
