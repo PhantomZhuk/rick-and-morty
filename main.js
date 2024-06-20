@@ -1,17 +1,17 @@
-$(`#characters`).click(() => {
-    $('#characters').css({
+$(`.characters`).click(() => {
+    $('.characters').css({
         'color': 'rgb(189, 255, 160)',
         'text-shadow': 'rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px'
     });
-    $(`#episode`).css({
+    $(`.episode`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
-    $(`#locations`).css({
+    $(`.locations`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
-    $(`#watchList`).css({
+    $(`.watchList`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
@@ -21,22 +21,23 @@ $(`#characters`).click(() => {
     $(`.episodePage`).css(`display`, `none`);
     $(`.locationsPage`).css(`display`, `none`);
     $(`.watchListPage`).css(`display`, `none`);
+    $(`.navContainer`).css(`display`, `none`);
 });
 
-$(`#episode`).click(() => {
-    $('#characters').css({
+$(`.episode`).click(() => {
+    $('.characters').css({
         'color': `#fff`,
         'text-shadow': `none`
     });
-    $(`#episode`).css({
+    $(`.episode`).css({
         'color': 'rgb(189, 255, 160)',
         'text-shadow': 'rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px'
     })
-    $(`#locations`).css({
+    $(`.locations`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
-    $(`#watchList`).css({
+    $(`.watchList`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
@@ -46,22 +47,23 @@ $(`#episode`).click(() => {
     $(`.episodePage`).css(`display`, `flex`);
     $(`.locationsPage`).css(`display`, `none`);
     $(`.watchListPage`).css(`display`, `none`);
+    $(`.navContainer`).css(`display`, `none`);
 });
 
-$(`#locations`).click(() => {
-    $('#characters').css({
+$(`.locations`).click(() => {
+    $('.characters').css({
         'color': `#fff`,
         'text-shadow': `none`
     })
-    $(`#episode`).css({
+    $(`.episode`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
-    $(`#locations`).css({
+    $(`.locations`).css({
         'color': 'rgb(189, 255, 160)',
         'text-shadow': 'rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px'
     })
-    $(`#watchList`).css({
+    $(`.watchList`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
@@ -71,22 +73,23 @@ $(`#locations`).click(() => {
     $(`.episodePage`).css(`display`, `none`);
     $(`.locationsPage`).css(`display`, `flex`);
     $(`.watchListPage`).css(`display`, `none`);
+    $(`.navContainer`).css(`display`, `none`);
 });
 
-$(`#watchList`).click(() => {
-    $('#characters').css({
+$(`.watchList`).click(() => {
+    $('.characters').css({
         'color': `#fff`,
         'text-shadow': `none`
     });
-    $(`#episode`).css({
+    $(`.episode`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
-    $(`#locations`).css({
+    $(`.locations`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
-    $(`#watchList`).css({
+    $(`.watchList`).css({
         'color': 'rgb(189, 255, 160)',
         'text-shadow': 'rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px -2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) 0px 2px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -2px 0px 4px, rgb(9, 178, 14) 2px 0px 4px, rgb(9, 178, 14) -1px -2px 4px, rgb(9, 178, 14) 1px -2px 4px, rgb(9, 178, 14) -1px 2px 4px, rgb(9, 178, 14) 1px 2px 4px, rgb(9, 178, 14) -2px -1px 4px, rgb(9, 178, 14) 2px -1px 4px, rgb(9, 178, 14) -2px 1px 4px, rgb(9, 178, 14) 2px 1px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px, rgb(9, 178, 14) -2px -2px 4px, rgb(9, 178, 14) 2px -2px 4px, rgb(9, 178, 14) -2px 2px 4px, rgb(9, 178, 14) 2px 2px 4px'
     })
@@ -96,22 +99,23 @@ $(`#watchList`).click(() => {
     $(`.episodePage`).css(`display`, `none`);
     $(`.locationsPage`).css(`display`, `none`);
     $(`.watchListPage`).css(`display`, `flex`);
+    $(`.navContainer`).css(`display`, `none`);
 });
 
-$(`#logo`).click(() => {
-    $('#characters').css({
+$(`.logo`).click(() => {
+    $('.characters').css({
         'color': `#fff`,
         'text-shadow': `none`
     });
-    $(`#episode`).css({
+    $(`.episode`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
-    $(`#locations`).css({
+    $(`.locations`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
-    $(`#watchList`).css({
+    $(`.watchList`).css({
         'color': `#fff`,
         'text-shadow': `none`
     })
@@ -121,7 +125,14 @@ $(`#logo`).click(() => {
     $(`.episodePage`).css(`display`, `none`);
     $(`.locationsPage`).css(`display`, `none`);
     $(`.watchListPage`).css(`display`, `none`);
+    $(`.navContainer`).css(`display`, `none`);
 });
+
+
+$(`.navBtn`).click(()=>{
+    $(`.navContainer`).css(`display`, `flex`);
+});
+
 
 let charactersPageOpen = 1;
 let numberCharactersPage;
