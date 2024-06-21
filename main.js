@@ -129,49 +129,53 @@ $(`.logo`).click(() => {
 });
 
 
-$(`.navBtn`).click(()=>{
+$(`.navBtn`).click(() => {
     $(`.navContainer`).css(`display`, `flex`);
 });
 
 
 let charactersPageOpen = 1;
 let numberCharactersPage;
-function getCharacters(page = 1) {
-    axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`)
+let gender = ``;
+let species = ``;
+let status = ``;
+
+function filterCharacters(page = 1, gender = '', species = '', status = '') {
+    axios.get(`https://rickandmortyapi.com/api/character/?page=${page}&gender=${gender}&species=${species}&status=${status}`)
         .then(res => {
+            console.log(res)
             $('.charactersContainer').empty();
             for (let el of res.data.results) {
-                if ((!$('#species').val() || el.species === $('#species').val()) &&
-                    (!$('#status').val() || el.status === $('#status').val()) &&
-                    (!$('#gender').val() || el.gender === $('#gender').val())) {
-                    $('.charactersContainer').append(`
+                $('.charactersContainer').append(`
                     <div class="characterItem">
                         <img src="${el.image}" alt="">
                         <h3>${el.name}</h3>
                         <button id="code${el.id}" class="viewInfoBtn">View</button>
                     </div>
                 `);
-                }
             }
-
             numberCharactersPage = res.data.info.pages;
         })
 }
 
-getCharacters(charactersPageOpen)
+filterCharacters(charactersPageOpen, gender, species, status);
+
 
 $('#species, #status, #gender').change(() => {
+    gender = $(`#gender`).val();
+    species = $(`#species`).val();
+    status = $(`#status`).val();
     charactersPageOpen = 1
-    getCharacters(charactersPageOpen)
+    filterCharacters(charactersPageOpen, gender, species, status);
     $(`#numberCharactersPage`).val(charactersPageOpen);
 });
 
 $(`#resetCharacters`).click(() => {
-    $('#species').val(``);
-    $('#status').val(``);
-    $('#gender').val(``);
+    gender = ``;
+    species = ``;
+    status = ``;
     charactersPageOpen = 1
-    getCharacters(charactersPageOpen)
+    filterCharacters(charactersPageOpen, gender, species, status);
     $(`#numberCharactersPage`).val(charactersPageOpen);
 });
 
@@ -207,7 +211,7 @@ $(`#close`).click(() => {
 $(`#nextCharactersPage`).click(() => {
     if (charactersPageOpen <= numberCharactersPage - 1) {
         charactersPageOpen++
-        getCharacters(charactersPageOpen);
+        filterCharacters(charactersPageOpen, gender, species, status);
         $(`#numberCharactersPage`).val(charactersPageOpen);
     }
 });
@@ -215,7 +219,7 @@ $(`#nextCharactersPage`).click(() => {
 $(`#prewCharactersPage`).click(() => {
     if (charactersPageOpen > 1) {
         charactersPageOpen--
-        getCharacters(charactersPageOpen);
+        filterCharacters(charactersPageOpen, gender, species, status);
         $(`#numberCharactersPage`).val(charactersPageOpen);
     }
 });
@@ -223,7 +227,7 @@ $(`#prewCharactersPage`).click(() => {
 $(`#numberCharactersPage`).keydown((e) => {
     if (e.keyCode == 13) {
         charactersPageOpen = $(`#numberCharactersPage`).val();
-        getCharacters(charactersPageOpen);
+        filterCharacters(charactersPageOpen, gender, species, status);
         $(`#numberCharactersPage`).val(charactersPageOpen);
     }
 });
