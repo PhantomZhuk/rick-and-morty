@@ -143,7 +143,7 @@ let status = ``;
 function filterCharacters(page = 1, gender = '', species = '', status = '') {
     axios.get(`https://rickandmortyapi.com/api/character/?page=${page}&gender=${gender}&species=${species}&status=${status}`)
         .then(res => {
-            console.log(res)
+            // console.log(res)
             $('.charactersContainer').empty();
             for (let el of res.data.results) {
                 $('.charactersContainer').append(`
@@ -236,32 +236,40 @@ $(`#numberCharactersPage`).keydown((e) => {
 let episodePageOpen = 1;
 let numberEpisodePage;
 
-function getEpisode(page = 1) {
-    axios.get(`https://rickandmortyapi.com/api/episode?page=${page}`)
+
+function filterEpisode(page = 1, searchName = ``) {
+    axios.get(`https://rickandmortyapi.com/api/episode/?page=${page}&name=${searchName}`)
         .then(res => {
+            $(`#epicodeControl`).show();
             $(`.episodeContainer`).empty();
-
-            let filterEpisodeName = res.data.results.filter(el => el.name.toLowerCase().includes(`${$(`#searchEpisode`).val().toLowerCase()}`))
-
-            for (let el of filterEpisodeName) {
-                $(`.episodeContainer`).append(`
-                    <div class="episodeItem">
-                        <h3>${el.episode}</h3>
-                        <p><span>Name:</span> ${el.name}</p>
-                        <p><span>Data:</span> ${el.air_date}</p>
-                        <button class="addWatchList" id="addWatchList${el.id}">Add to watch list</button>
-                    </div>
-                `)
+            if (res.data.info.count > 0) {
+                for (let el of res.data.results) {
+                    $(`.episodeContainer`).append(`
+                        <div class="episodeItem">
+                            <h3>${el.episode}</h3>
+                            <p><span>Name:</span> ${el.name}</p>
+                            <p><span>Data:</span> ${el.air_date}</p>
+                            <button class="addWatchList" id="addWatchList${el.id}">Add to watch list</button>
+                        </div>
+                    `)
+                }
             }
 
             numberEpisodePage = res.data.info.pages;
+        })
+        .catch(error => {
+            $(`.episodeContainer`).empty();
+            $(`.episodeContainer`).append(`
+                    <img src="./img/errorImg.png" alt="arror">
+                `)
+            $(`#epicodeControl`).hide();
         });
 }
 
-getEpisode(episodePageOpen);
+filterEpisode(episodePageOpen);
 
 $(`#searchEpisode`).on(`input`, () => {
-    getEpisode(episodePageOpen);
+    filterEpisode(episodePageOpen, $(`#searchEpisode`).val());
 });
 
 $(`#numberEpisodePage`).val(episodePageOpen);
@@ -269,7 +277,7 @@ $(`#numberEpisodePage`).val(episodePageOpen);
 $(`#nextEpisodePage`).click(() => {
     if (episodePageOpen <= numberEpisodePage - 1) {
         episodePageOpen++
-        getEpisode(episodePageOpen);
+        filterEpisode(episodePageOpen);
         $(`#numberEpisodePage`).val(episodePageOpen);
     }
 });
@@ -277,7 +285,7 @@ $(`#nextEpisodePage`).click(() => {
 $(`#prewEpisodePage`).click(() => {
     if (episodePageOpen > 1) {
         episodePageOpen--
-        getEpisode(episodePageOpen);
+        filterEpisode(episodePageOpen);
         $(`#numberEpisodePage`).val(episodePageOpen);
     }
 });
@@ -285,7 +293,7 @@ $(`#prewEpisodePage`).click(() => {
 $(`#numberEpisodePage`).keydown((e) => {
     if (e.keyCode == 13) {
         episodePageOpen = $(`#numberEpisodePage`).val();
-        getEpisode(episodePageOpen);
+        filterEpisode(episodePageOpen);
         $(`#numberEpisodePage`).val(episodePageOpen);
     }
 });
