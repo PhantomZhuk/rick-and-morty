@@ -236,7 +236,6 @@ $(`#numberCharactersPage`).keydown((e) => {
 let episodePageOpen = 1;
 let numberEpisodePage;
 
-
 function filterEpisode(page = 1, searchName = ``) {
     axios.get(`https://rickandmortyapi.com/api/episode/?page=${page}&name=${searchName}`)
         .then(res => {
@@ -300,50 +299,56 @@ $(`#numberEpisodePage`).keydown((e) => {
 
 let locationsPageOpen = 1;
 let numberLocationsPage;
+let type = ``;
+let dimension = ``;
 
-function getLocations(page = 1) {
-    axios.get(`https://rickandmortyapi.com/api/location?page=${page}`)
+function filterAndSearchLocations(page = 1, name, type, dimension) {
+    axios.get(`https://rickandmortyapi.com/api/location/?page=${page}&name=${name}&type=${type}&dimension=${dimension}`)
         .then(res => {
             $(`.locationsContainer`).empty();
-
-            let filterLocationsName = res.data.results.filter(el => el.name.toLowerCase().includes(`${$(`#searchLocations`).val().toLowerCase()}`))
-
-            for (let el of filterLocationsName) {
-                if ((!$('#type').val() || el.type === $('#type').val()) &&
-                    (!$('#dimension').val() || el.dimension === $('#dimension').val())) {
-                    $(`.locationsContainer`).append(`
+            for (let el of res.data.results) {
+                $(`.locationsContainer`).append(`
                         <div class="locationsItem">
                             <h3>${el.name}</h3>
                             <p><span>Name:</span> ${el.type}</p>
                             <p><span>Dimension:</span> ${el.dimension}</p>
                         </div>
                     `)
-                }
             }
-
             numberLocationsPage = res.data.info.pages;
+        })
+        .catch(error => {
+            $(`.locationsContainer`).empty();
+            $(`.locationsContainer`).append(`
+                    <img src="./img/errorImg.png" alt="arror">
+                `)
+            $(`#locationsControl`).hide();
         });
 }
 
-getLocations(locationsPageOpen);
+filterAndSearchLocations(locationsPageOpen, $(`#searchLocations`).val(), type, dimension);
 
 $('#type, #dimension').change(() => {
     locationsPageOpen = 1
-    getLocations(locationsPageOpen)
+    type = $(`#type`).val();
+    dimension = $(`#dimension`).val();
+    filterAndSearchLocations(locationsPageOpen, $(`#searchLocations`).val(), type, dimension);
     $(`#numberLocationsPage`).val(locationsPageOpen);
 });
 
 $(`#resetLocations`).click(() => {
-    $('#type').val(``);
-    $('#dimension').val(``);
-    $(`#searchLocations`).val(``)
+    type = ``;
+    dimension = ``;
+    $(`#searchLocations`).val(``);
+    $(`#type`).val(``);
+    $(`#dimension`).val(``);
     locationsPageOpen = 1
-    getLocations(locationsPageOpen)
+    filterAndSearchLocations(locationsPageOpen, $(`#searchLocations`).val(), type, dimension);
     $(`#numberLocationsPage`).val(locationsPageOpen);
 });
 
 $(`#searchLocations`).on(`input`, () => {
-    getLocations(locationsPageOpen);
+    filterAndSearchLocations(locationsPageOpen, $(`#searchLocations`).val(), type, dimension);
 });
 
 $(`#numberLocationsPage`).val(locationsPageOpen);
@@ -351,7 +356,7 @@ $(`#numberLocationsPage`).val(locationsPageOpen);
 $(`#nextLocationsPage`).click(() => {
     if (locationsPageOpen <= numberLocationsPage - 1) {
         locationsPageOpen++
-        getLocations(locationsPageOpen);
+        filterAndSearchLocations(locationsPageOpen, $(`#searchLocations`).val(), type, dimension);
         $(`#numberLocationsPage`).val(locationsPageOpen);
     }
 });
@@ -359,7 +364,7 @@ $(`#nextLocationsPage`).click(() => {
 $(`#prewLocationsPage`).click(() => {
     if (locationsPageOpen > 1) {
         locationsPageOpen--
-        getLocations(locationsPageOpen);
+        filterAndSearchLocations(locationsPageOpen, $(`#searchLocations`).val(), type, dimension);
         $(`#numberLocationsPage`).val(locationsPageOpen);
     }
 });
@@ -367,7 +372,7 @@ $(`#prewLocationsPage`).click(() => {
 $(`#numberLocationsPage`).keydown((e) => {
     if (e.keyCode == 13) {
         locationsPageOpen = $(`#numberLocationsPage`).val();
-        getLocations(locationsPageOpen);
+        filterAndSearchLocations(locationsPageOpen, $(`#searchLocations`).val(``), type, dimension);
         $(`#numberLocationsPage`).val(locationsPageOpen);
     }
 });
