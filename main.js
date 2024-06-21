@@ -143,7 +143,7 @@ let status = ``;
 function filterCharacters(page = 1, gender = '', species = '', status = '') {
     axios.get(`https://rickandmortyapi.com/api/character/?page=${page}&gender=${gender}&species=${species}&status=${status}`)
         .then(res => {
-            // console.log(res)
+            $(`#charactersControl`).show();
             $('.charactersContainer').empty();
             for (let el of res.data.results) {
                 $('.charactersContainer').append(`
@@ -156,6 +156,13 @@ function filterCharacters(page = 1, gender = '', species = '', status = '') {
             }
             numberCharactersPage = res.data.info.pages;
         })
+        .catch(error => {
+            $(`.charactersContainer`).empty();
+            $(`.charactersContainer`).append(`
+                    <img src="./img/errorImg.png" alt="arror">
+                `)
+            $(`#charactersControl`).hide();
+        });
 }
 
 filterCharacters(charactersPageOpen, gender, species, status);
@@ -174,6 +181,9 @@ $(`#resetCharacters`).click(() => {
     gender = ``;
     species = ``;
     status = ``;
+    $(`#gender`).val(``);
+    $(`#species`).val(``);
+    $(`#status`).val(``);
     charactersPageOpen = 1
     filterCharacters(charactersPageOpen, gender, species, status);
     $(`#numberCharactersPage`).val(charactersPageOpen);
@@ -190,7 +200,7 @@ function getCharacterInfo(id) {
                 <p>Status: ${res.data.status}</p>
                 <p>Species: ${res.data.species}</p>
             `)
-        });
+        })
 }
 
 $(`#numberCharactersPage`).val(charactersPageOpen);
@@ -305,6 +315,7 @@ let dimension = ``;
 function filterAndSearchLocations(page = 1, name, type, dimension) {
     axios.get(`https://rickandmortyapi.com/api/location/?page=${page}&name=${name}&type=${type}&dimension=${dimension}`)
         .then(res => {
+            $(`#locationsControl`).show();
             $(`.locationsContainer`).empty();
             for (let el of res.data.results) {
                 $(`.locationsContainer`).append(`
