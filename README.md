@@ -2,7 +2,7 @@
 ### Contents
 + [Project Description](#project-description)
 + [Features](#features)
-+ [Services and Libraries](#api-and-libraries)
++ [API and Libraries](#api-and-libraries)
 
 ### Project Description
 This site provides information on the animated series "Rick and Morty," including details on all characters, locations, and episodes.
