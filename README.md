@@ -1,5 +1,5 @@
 # Rick and Morty
-<img src="./img/Знімок екрана 2024-12-23 191620.png">
+<img src="./img/readmi.png">
 ### Project Description
 This site provides information on the animated series "Rick and Morty," including details on all characters, locations, and episodes.
 
